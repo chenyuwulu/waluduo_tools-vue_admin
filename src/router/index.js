@@ -89,6 +89,12 @@ export const constantRoutes = [
         name: 'Config',
         component: () => import('@/views/sysmanage/config/index'),
         meta: { title: '配置管理', icon: 'link' }
+      },
+      {
+        path: 'we_service/ctx/index',
+        name: 'Ctx',
+        component: () => import('@/views/we_service/ctx/index'),
+        meta: { title: '内容展示', icon: 'link' }
       }
     ]
   },
