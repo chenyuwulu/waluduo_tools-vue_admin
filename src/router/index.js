@@ -95,6 +95,19 @@ export const constantRoutes = [
         name: 'Ctx',
         component: () => import('@/views/we_service/ctx/index'),
         meta: { title: '内容展示', icon: 'link' }
+      },
+      // 这里是文章的页面
+      {
+        path: 'we_service/article/list',
+        name: 'Article',
+        component: () => import('@/views/we_service/article/list'),
+        meta: { title: '文章列表', icon: 'link' }
+      },
+      {
+        path: 'we_service/article/create',
+        name: 'Create',
+        component: () => import('@/views/we_service/article/create'),
+        meta: { title: '创建文章', icon: 'link' }
       }
     ]
   },
