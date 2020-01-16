@@ -8,9 +8,9 @@ export function getlist(data) {
   })
 }
 
-export function create(data) {
+export function play_post(data) {
   return request({
-    url: '/we_service/we_article/create',
+    url: '/we_service/we_article/play_post',
     method: 'post',
     data
   })
