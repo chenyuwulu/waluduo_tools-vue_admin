@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue'//引入vue实例
+import Router from 'vue-router'//这里是引入vue-router
 
-Vue.use(Router)
+Vue.use(Router)//在vue实例上挂在vue-router
 
 /* Layout */
 import Layout from '@/layout'
@@ -31,89 +31,107 @@ import Layout from '@/layout'
  * all roles can be accessed
  */
 export const constantRoutes = [
-  {
-    path: '/login',
+  { path: '/login',
     component: () => import('@/views/login/index'),
     hidden: true
   },
-
-  {
-    path: '/404',
+  { path: '/404',
     component: () => import('@/views/404'),
     hidden: true
   },
-
-  {
-    path: '/',
+  { path: '/',
     component: Layout,
     redirect: '/welcome',
     children: [
-      {
-        path: '/welcome',
+      { path: '/welcome',
         name: 'Welcome',
         component: () => import('@/views/dashboard/index'),
-        meta: { title: '欢迎页', icon: 'dashboard' }
-      },
-      {
-        path: 'system/menu/index',
+        meta: { 
+          title: '欢迎页', 
+          icon: 'dashboard' 
+        }
+      },{ path: 'system/menu/index',
         name: 'Menu',
         component: () => import('@/views/sysmanage/menu/index'),
-        meta: { title: '菜单管理', icon: 'link' }
-      },
-      {
-        path: 'system/department/index',
+        meta: { 
+          title: '菜单管理', 
+          icon: 'link' 
+        }
+      },{ path: 'system/department/index',
         name: 'Depart',
         component: () => import('@/views/sysmanage/depart/index'),
-        meta: { title: '机构管理', icon: 'link' }
-      },
-      {
-        path: 'system/user/index',
+        meta: { 
+          title: '机构管理', 
+          icon: 'link' 
+        }
+      },{ path: 'system/user/index',
         name: 'User',
         component: () => import('@/views/sysmanage/user/index'),
-        meta: { title: '用户管理', icon: 'link' }
-      },
-      {
-        path: 'system/role/index',
+        meta: { 
+          title: '用户管理', 
+          icon: 'link' 
+        }
+      },{ path: 'system/role/index',
         name: 'Role',
         component: () => import('@/views/sysmanage/role/index'),
-        meta: { title: '角色管理', icon: 'link' }
-      },
-      {
-        path: 'system/log/index',
+        meta: { 
+          title: '角色管理', 
+          icon: 'link' 
+        }
+      },{ path: 'system/log/index',
         name: 'Log',
         component: () => import('@/views/sysmanage/syslog/index'),
-        meta: { title: '日志管理', icon: 'link' }
-      },
-      {
-        path: 'system/config/index',
+        meta: { 
+          title: '日志管理', 
+          icon: 'link' 
+        }
+      },{ path: 'system/config/index',
         name: 'Config',
         component: () => import('@/views/sysmanage/config/index'),
-        meta: { title: '配置管理', icon: 'link' }
-      },
-      {
-        path: 'we_service/ctx/index',
+        meta: { 
+          title: '配置管理', 
+          icon: 'link' 
+        }
+      },{ path: 'we_service/ctx/index',
         name: 'Ctx',
         component: () => import('@/views/we_service/ctx/index'),
-        meta: { title: '内容展示', icon: 'link' }
+        meta: { 
+          title: '内容展示', 
+          icon: 'link' 
+        }
       },
       // 这里是文章的页面
-      {
-        path: 'we_service/article/list',
+      { path: 'we_service/article/list',
         name: 'Article',
         component: () => import('@/views/we_service/article/list'),
-        meta: { title: '文章列表', icon: 'link' }
-      },
-      {
-        path: 'we_service/article/create',
+        meta: { 
+          title: '文章列表', 
+          icon: 'link' 
+        }
+      },{ path: 'we_service/article/create',
         name: 'Create',
         component: () => import('@/views/we_service/article/create'),
-        meta: { title: '创建文章', icon: 'link' }
+        meta: { 
+          title: '创建文章', 
+          icon: 'link' 
+        }
+      },
+      // 这里是琐事便签的页面
+      { path: 'we_service/trivia_books/index',
+        name: 'Index',
+        component: () => import('@/views/we_service/trivia_books/index'),
+        meta: { 
+          title: '首页', 
+          icon: 'link' 
+        }
       }
     ]
   },
-
   // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  { path: '*', 
+    redirect: '/404', 
+    hidden: true 
+  }
 ]
 
 const createRouter = () => new Router({
