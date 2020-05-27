@@ -22,5 +22,7 @@ module.exports = {
    * @type {boolean} true | false
    * @description Whether show the logo in sidebar
    */
-  sidebarLogo: false
+  sidebarLogo: true,//是否显示内容页的左上角logo
+
+  tagsView:true
 }

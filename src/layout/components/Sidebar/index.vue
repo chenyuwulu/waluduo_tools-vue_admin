@@ -10,8 +10,7 @@
         :unique-opened="false"
         :active-text-color="variables.menuActiveText"
         :collapse-transition="false"
-        mode="vertical"
-      >
+        mode="vertical">
         <sidebar-item v-for="route in routes" :key="route.urlkey" :item="route" :base-path="route.url" />
       </el-menu>
     </el-scrollbar>

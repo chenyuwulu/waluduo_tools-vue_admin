@@ -48,7 +48,8 @@ export const constantRoutes = [
         component: () => import('@/views/dashboard/index'),
         meta: { 
           title: '欢迎页', 
-          icon: 'dashboard' 
+          icon: 'dashboard',
+          affix: true
         }
       },{ path: 'system/menu/index',
         name: 'Menu',
