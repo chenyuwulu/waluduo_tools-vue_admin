@@ -55,9 +55,11 @@ export default {
     }
   },
   methods: {
+    // 获取当前页面的菜单栏
     async getMenu() {
-      return await getUserMenu().then(response => {
-        this.routes = translateDataToTree(response.data)
+      return await getUserMenu().then(res => {
+        this.routes = translateDataToTree(res.data)
+        console.log('这是转化过的',this.routes)
       }).catch(error => {
         console.log(error)
       })

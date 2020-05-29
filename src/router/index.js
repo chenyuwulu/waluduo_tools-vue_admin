@@ -122,7 +122,14 @@ export const constantRoutes = [
         name: 'Index',
         component: () => import('@/views/we_service/trivia_books/index'),
         meta: { 
-          title: '首页', 
+          title: '琐事便签-首页', 
+          icon: 'link' 
+        }
+      },{ path: 'we_service/trivia_books/user_list',
+        name: 'User_list',
+        component: () => import('@/views/we_service/trivia_books/user_list'),
+        meta: { 
+          title: '琐事便签-用户列表', 
           icon: 'link' 
         }
       }

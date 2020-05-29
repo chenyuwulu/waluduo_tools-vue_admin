@@ -13,8 +13,8 @@
         <item v-if="item.name" :icon="item.name && item.icon" :title="item.name" />
       </template>
       <sidebar-item
-        v-for="child in item.children"
-        :key="child.urlkey"
+        v-for="(child,index) in item.children"
+        :key="index"
         :is-nest="true"
         :item="child"
         :base-path="resolvePath(child.url)"

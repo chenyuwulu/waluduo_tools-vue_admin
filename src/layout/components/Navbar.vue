@@ -4,14 +4,15 @@
 
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
-      <el-dropdown class="avatar-container" trigger="hover">
+      <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <div class="user-avatar">
-            <svg-icon style="font-size:40px;" icon-class="setting" />
+            <!-- <svg-icon style="font-size:40px;" icon-class="setting" /> -->
+            <i style="font-size:40px;color:#66ccff;" class="el-icon-s-custom"></i>
           </div>
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <a target="_blank" href="https://github.com/goflyfox/gmanager-web">
+          <a target="_blank" href="https://github.com/chenyuwulu">
             <el-dropdown-item>
               <svg-icon icon-class="github" />
               Github
@@ -50,7 +51,7 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button size="mini" @click="dialogFormVisible = false">取 消</el-button>
+        <el-button size="mini" @click="(dialogFormVisible = false)">取 消</el-button>
         <el-button type="primary" size="mini" @click="savePassword">修 改</el-button>
       </div>
     </el-dialog>
