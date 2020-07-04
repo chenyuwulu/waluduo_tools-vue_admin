@@ -1,13 +1,13 @@
 <template>
   <div class="app-container">
     <el-table v-loading="listLoading" :data="list" border fit highlight-current-row style="width: 100%">
-      <el-table-column align="center" label="ID" width="80">
+      <el-table-column align="center" label="ID" width="80" :sortable="true">
         <div @click="yes(scope.row)" slot-scope="obj">
           {{obj.row.id}}
         </div>
       </el-table-column>
       <el-table-column width="180px" align="center" label="发布时间">
-        <div slot-scope="obj">
+        <div class="test" slot-scope="obj">
           {{obj.row.publish_time}}
         </div>
       </el-table-column>
@@ -27,7 +27,7 @@
     </el-table>
     <!-- 翻页组件 -->
     <pagination
-      v-if="total>0"
+      :pagination="pagination"
       :total="total"
       :page.sync="listQuery.page"
       :limit.sync="listQuery.limit"
@@ -52,7 +52,10 @@ export default {
         limit: 20
       },
       list: null,
-      listLoading: true
+      listLoading: true,
+      pagination:{
+        single_page:true
+      }
     }
   },
   created() {
@@ -73,6 +76,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+  .test{
+    background-color: #66ccff;
+  }
   .app-container {
     width: 100%;
     .div-table{

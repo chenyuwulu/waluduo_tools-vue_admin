@@ -3,6 +3,7 @@
     <el-pagination
       layout="total, sizes, prev, pager, next, jumper"
       :pagination="pagination"
+      :hide-on-single-page="pagination.single_page"
       :page-size="pagination.pageSize"
       :current-page="pagination.currentPage"
       :total="pagination.total"
