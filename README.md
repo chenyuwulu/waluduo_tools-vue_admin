@@ -1,16 +1,16 @@
-# qm-plus-vue-page
+# gf_vue_admin
 
-## Project setup
+## 安装项目依赖
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 运行开发版
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 打包正式版
 ```
 npm run build
 ```

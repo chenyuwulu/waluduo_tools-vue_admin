@@ -29,7 +29,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
-
+dist
 go.sum
 /server/local/
 /server/log/
