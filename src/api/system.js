@@ -1,55 +1,29 @@
-import request from '@/utils/request'
+import service from '@/utils/request'
 
-export function getMenuList(data) {
-  return request({
-    url: '/system/menu/page',
-    method: 'post',
-    data
-  })
+// @Tags systrm
+// @Summary 获取配置文件内容
+// @Security ApiKeyAuth
+// @Produce  application/json
+// @Success 200 {string} string "{"success":true,"data":{},"msg":"返回成功"}"
+// @Router /system/getSystemConfig [post]
+export const getSystemConfig = () => {
+    return service({
+        url: "/system/getSystemConfig",
+        method: 'post',
+    })
 }
 
-export function getMenuTree() {
-  return request({
-    url: '/system/menu/tree',
-    method: 'post'
-  })
+// @Tags system
+// @Summary 设置配置文件内容
+// @Security ApiKeyAuth
+// @Produce  application/json
+// @Param data body sysModel.System true
+// @Success 200 {string} string "{"success":true,"data":{},"msg":"返回成功"}"
+// @Router /system/setSystemConfig [post]
+export const setSystemConfig = (data) => {
+    return service({
+        url: "/system/setSystemConfig",
+        method: 'post',
+        data
+    })
 }
-
-export function getMenuDetail(id) {
-  return request({
-    url: `/system/menu/get/${id}`,
-    method: 'get'
-  })
-}
-
-export function saveMenu(data) {
-  return request({
-    url: '/system/menu/save',
-    method: 'post',
-    data
-  })
-}
-
-export function delMenu(id) {
-  return request({
-    url: `/system/menu/delete/${id}`,
-    method: 'post'
-  })
-}
-
-export function getRoleList(data) {
-  return request({
-    url: '/login/submit',
-    method: 'post',
-    data
-  })
-}
-
-export function getUserList(data) {
-  return request({
-    url: '/login/submit',
-    method: 'post',
-    data
-  })
-}
-

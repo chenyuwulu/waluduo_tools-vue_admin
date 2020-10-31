@@ -1,43 +1,72 @@
 import Vue from 'vue'
+import App from './App.vue'
+// 引入element
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+// 全局配置elementui的dialog不能通过点击遮罩层关闭
+ElementUI.Dialog.props.closeOnClickModal.default = false
+Vue.use(ElementUI);
+// 引入封装的router
+import router from '@/router/index'
 
-import 'normalize.css/normalize.css' // A modern alternative to CSS resets
+// canvas背景插件
+import vueParticleLine from 'vue-particle-line'
+import 'vue-particle-line/dist/vue-particle-line.css'
+Vue.use(vueParticleLine)
 
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-import locale from 'element-ui/lib/locale/lang/zh-CN' // lang i18n
+// time line css
+import '../node_modules/timeline-vuejs/dist/timeline-vuejs.css'
 
-import '@/styles/index.scss' // global css
+// 富文本插件
+import VueQuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
 
-import App from './App'
-import store from './store'
-import router from './router'
+Vue.use(VueQuillEditor)
 
-import '@/icons' // icon
-import '@/permission' // permission control
+// markdown插件
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 
-/**
- * If you don't want to use mock-server
- * you want to use MockJs for mock api
- * you can execute: mockXHR()
- *
- * Currently MockJs will be used in the production environment,
- * please remove it before going online! ! !
- */
-import { mockXHR } from '../mock'
-if (process.env.NODE_ENV === 'production') {
-  mockXHR()
-}
+Vue.use(mavonEditor)
 
-// set ElementUI lang to EN
-Vue.use(ElementUI, { locale })
-// 如果想要中文版 element-ui，按如下方式声明
-// Vue.use(ElementUI)
-
+import '@/permission'
+import { store } from '@/store/index'
 Vue.config.productionTip = false
 
+// 路由守卫
+import Bus from '@/utils/bus.js'
+Vue.use(Bus)
+
+import APlayer from '@moefe/vue-aplayer';
+
+Vue.use(APlayer, {
+    defaultCover: 'https://github.com/u3u.png',
+    productionTip: true,
+});
+
+
+import {auth} from '@/directive/auth'
+// 按钮权限指令
+auth(Vue)
+
+import uploader from 'vue-simple-uploader'
+Vue.use(uploader)
+
 new Vue({
-  el: '#app',
-  router,
-  store,
-  render: h => h(App)
-})
+    render: h => h(App),
+    router,
+    store
+}).$mount('#app')
+
+//引入echarts
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts;
+
+console.log(`
+       欢迎使用 Gf-Vue-Admin
+       当前版本:V1.1.2
+       默认自动化文档地址:http://127.0.0.1%s/swagger/index.html
+       默认前端文件运行地址:http://127.0.0.1:8080
+`)
